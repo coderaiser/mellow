@@ -1,0 +1,23 @@
+{
+  "name": "mellow",
+  "version": "0.9.2",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "Convert path from web to windows",
+  "homepage": "http://github.com/coderaiser/flop",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/flop.git"
+  },
+  "dependencies": {
+    "flop": "^1.0.9",
+    "format-io": "^0.9.4",
+    "util-io": "^1.2.0",
+    "win32": "^0.9.3"
+  },
+  "devDependencies": {},
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.4.x"
+  },
+  "main": "lib/mellow.js"
+}
