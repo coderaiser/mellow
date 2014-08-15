@@ -9,7 +9,7 @@
     "url": "git://github.com/coderaiser/flop.git"
   },
   "dependencies": {
-    "flop": "^1.0.9",
+    "flop": "^1.0.12",
     "format-io": "^0.9.4",
     "util-io": "^1.2.0",
     "win32": "^0.9.3"
