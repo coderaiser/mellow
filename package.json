@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "flop": "~1.0.12",
-    "format-io": "~0.9.4",
     "util-io": "~1.5.0",
     "win32": "~0.9.3"
   },
