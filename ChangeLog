@@ -1,3 +1,12 @@
+2014.10.31, v0.9.6
+
+fix:
+- (mellow) always add slash to path even for files
+
+feature:
+- (package) rm format-io
+
+
 2014.10.30, v0.9.5
 
 fix:
