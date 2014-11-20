@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "flop": "~1.0.12",
-    "util-io": "~1.5.0",
+    "util-io": "~1.6.0",
     "win32": "~0.9.3"
   },
   "devDependencies": {},
