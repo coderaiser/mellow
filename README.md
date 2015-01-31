@@ -23,12 +23,22 @@ mellow.read('.', function(error, data) {
 
 ```
 
-### convertPath
+### pathToWin
 
 ```js
 var mellow  = require('mellow');
-    path    = mellow.convertPath('/c/windows');
-    //c:/windows
+    path    = mellow.pathToWin('/c/windows');
+    // returns
+    'c:/windows'
+```
+
+### pathFromWin
+
+```js
+var mellow  = require('mellow');
+    path    = mellow.pathFromWin('c:/windows');
+    // returns
+    '/c/windows'
 ```
 
 ## License
