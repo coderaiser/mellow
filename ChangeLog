@@ -1,3 +1,9 @@
+2015.04.07, v1.3.2
+
+fix:
+- (mellow) pathFromWin: join even when dir is "/"
+
+
 2015.04.07, v1.3.1
 
 fix:
