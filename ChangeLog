@@ -1,3 +1,9 @@
+2015.04.07, v1.3.1
+
+fix:
+- (mellow) read: regexp
+
+
 2015.04.07, v1.3.0
 
 feature:
