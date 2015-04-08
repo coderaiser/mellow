@@ -1,3 +1,9 @@
+2015.04.08, v1.3.4
+
+fix:
+- (mellow) pathToWin: add path.normalize
+
+
 2015.04.07, v1.3.3
 
 fix:
