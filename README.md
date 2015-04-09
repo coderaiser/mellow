@@ -29,14 +29,14 @@ mellow.read('.', function(error, data) {
 var mellow  = require('mellow');
     path    = mellow.pathToWin('/c/windows');
     // returns
-    'c:/windows'
+    'c:\windows'
 ```
 
 ### pathFromWin
 
 ```js
 var mellow  = require('mellow');
-    path    = mellow.pathFromWin('c:/windows');
+    path    = mellow.pathFromWin('c:\windows');
     // returns
     '/c/windows'
 ```
