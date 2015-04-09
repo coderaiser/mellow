@@ -6,7 +6,7 @@ Mellow - convert path from web to windows.
 For use as module you could install mellow with:
 
 ```
-npm i mellow
+npm i mellow --save
 ```
 
 ## API
