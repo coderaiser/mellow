@@ -11,18 +11,6 @@ npm i mellow --save
 
 ## API
 
-### read
-Read content of directory.
-
-```js
-var flop = require('mellow');
-
-mellow.read('.', function(error, data) {
-    console.log(error, data);
-});
-
-```
-
 ### pathToWin
 
 ```js

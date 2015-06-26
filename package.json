@@ -9,8 +9,6 @@
     "url": "git://github.com/coderaiser/mellow.git"
   },
   "dependencies": {
-    "flop": "~1.2.1",
-    "win32": "~0.9.3"
   },
   "devDependencies": {},
   "license": "MIT",
