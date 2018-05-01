@@ -8,8 +8,14 @@
     "type": "git",
     "url": "git://github.com/coderaiser/mellow.git"
   },
+  "scripts": {
+    "lint": "eslint lib"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-node": "^6.0.1"
+  },
   "license": "MIT",
   "main": "lib/mellow.js"
 }
