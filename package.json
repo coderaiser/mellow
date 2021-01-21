@@ -8,14 +8,34 @@
     "type": "git",
     "url": "git://github.com/coderaiser/mellow.git"
   },
+  "main": "lib/mellow.js",
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "report": "madrun report",
+    "coverage": "madrun coverage",
+    "test": "madrun test",
+    "watch:coverage": "madrun watch:coverage",
+    "watch:test": "madrun watch:test",
+    "watcher": "madrun watcher"
   },
   "dependencies": {},
   "devDependencies": {
+    "coveralls": "^3.1.0",
     "eslint": "^7.18.0",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-putout": "^6.11.1",
+    "madrun": "^8.6.0",
+    "mock-require": "^3.0.3",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "putout": "^13.8.0",
+    "supertape": "^4.8.0"
   },
   "license": "MIT",
-  "main": "lib/mellow.js"
+  "engines": {
+    "node": ">=14"
+  }
 }

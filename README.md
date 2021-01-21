@@ -1,12 +1,20 @@
-# Mellow
+# Mellow [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/mellow.svg?style=flat
+[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/mellow/master.svg?style=flat
+[DependencyStatusIMGURL]: https://img.shields.io/david/coderaiser/mellow.svg?style=flat
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[NPMURL]: https://npmjs.org/package/mellow "npm"
+[BuildStatusURL]: https://travis-ci.org/coderaiser/mellow "Build Status"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/mellow "Dependency Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 
 Mellow - convert path from web to windows.
 
 ## Install
-For use as module you could install mellow with:
 
 ```
-npm i mellow --save
+npm i mellow
 ```
 
 ## API
@@ -14,19 +22,19 @@ npm i mellow --save
 ### pathToWin
 
 ```js
-var mellow  = require('mellow');
-    path    = mellow.pathToWin('/c/windows');
-    // returns
-    'c:\windows'
+const mellow  = require('mellow');
+mellow.webToWin('/c/windows');
+// returns
+'c:\\windows';
 ```
 
 ### pathFromWin
 
 ```js
-var mellow  = require('mellow');
-    path    = mellow.pathFromWin('c:\windows');
-    // returns
-    '/c/windows'
+const mellow  = require('mellow');
+mellow.winToWeb('c:\\windows');
+// returns
+'/c/windows';
 ```
 
 ## License
