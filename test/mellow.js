@@ -76,8 +76,6 @@ test('mellow: winToWeb', (t) => {
 });
 
 test('mellow: webToWin: linux', (t) => {
-    const {platform} = process;
-    
     const {webToWin} = reRequire('..');
     const result = webToWin('/c/windows', '');
     const expected = '/c/windows';
@@ -96,9 +94,17 @@ test('mellow: winToWeb: linux', (t) => {
     t.end();
 });
 
-test('mellow: webToWin: root and root not /', (t) => {
-    const {platform} = process;
+test('mellow: winToWeb: linux: no root', (t) => {
+    const result = winToWeb('/home/user');
+    const expected = '/home/user';
     
+    stopAll();
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('mellow: webToWin: root and root not /', (t) => {
     const {webToWin} = reRequire('..');
     const result = webToWin('/windows', '/c/');
     const expected = '/c/windows';
