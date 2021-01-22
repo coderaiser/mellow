@@ -8,6 +8,8 @@
 [BuildStatusURL]: https://travis-ci.org/coderaiser/mellow "Build Status"
 [DependencyStatusURL]: https://david-dm.org/coderaiser/mellow "Dependency Status"
 [LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/coderaiser/mellow?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/mellow/badge.svg?branch=master&service=github
 
 Mellow - convert path from web to windows.
 
