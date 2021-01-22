@@ -75,6 +75,28 @@ test('mellow: winToWeb', (t) => {
     t.end();
 });
 
+test('mellow: winToWeb: no root', (t) => {
+    const {platform} = process;
+    
+    Object.defineProperty(process, 'platform', {
+        value: 'win32',
+    });
+    
+    mockRequire('path', path.win32);
+    
+    const result = winToWeb('c:\\windows');
+    const expected = '/c/windows';
+    
+    Object.defineProperty(process, 'platform', {
+        value: platform,
+    });
+    
+    stopAll();
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('mellow: webToWin: linux', (t) => {
     const {webToWin} = reRequire('..');
     const result = webToWin('/c/windows', '');
@@ -112,3 +134,4 @@ test('mellow: webToWin: root and root not /', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
