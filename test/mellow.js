@@ -98,17 +98,43 @@ test('mellow: winToWeb: no root', (t) => {
 });
 
 test('mellow: webToWin: linux', (t) => {
+    const {platform} = process;
+    
+    Object.defineProperty(process, 'platform', {
+        value: 'linux',
+    });
+    
+    mockRequire('path', path);
+    
     const {webToWin} = reRequire('..');
     const result = webToWin('/c/windows', '');
     const expected = '/c/windows';
+    
+    Object.defineProperty(process, 'platform', {
+        value: platform,
+    });
+    
+    stopAll();
     
     t.equal(result, expected);
     t.end();
 });
 
 test('mellow: winToWeb: linux', (t) => {
+    const {platform} = process;
+    
+    Object.defineProperty(process, 'platform', {
+        value: 'linux',
+    });
+    
+    mockRequire('path', path);
+    
     const result = winToWeb('/home/user', '');
     const expected = '/home/user';
+    
+    Object.defineProperty(process, 'platform', {
+        value: platform,
+    });
     
     stopAll();
     
@@ -117,8 +143,20 @@ test('mellow: winToWeb: linux', (t) => {
 });
 
 test('mellow: winToWeb: linux: no root', (t) => {
+    const {platform} = process;
+    
+    Object.defineProperty(process, 'platform', {
+        value: 'linux',
+    });
+    
+    mockRequire('path', path);
+    
     const result = winToWeb('/home/user');
     const expected = '/home/user';
+    
+    Object.defineProperty(process, 'platform', {
+        value: platform,
+    });
     
     stopAll();
     
@@ -127,9 +165,23 @@ test('mellow: winToWeb: linux: no root', (t) => {
 });
 
 test('mellow: webToWin: root and root not /', (t) => {
+    const {platform} = process;
+    
+    Object.defineProperty(process, 'platform', {
+        value: 'win32',
+    });
+    
+    mockRequire('path', path.win32);
+    
     const {webToWin} = reRequire('..');
     const result = webToWin('/windows', '/c/');
     const expected = '/c/windows';
+    
+    Object.defineProperty(process, 'platform', {
+        value: platform,
+    });
+    
+    stopAll();
     
     t.equal(result, expected);
     t.end();
