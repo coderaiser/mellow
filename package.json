@@ -31,7 +31,7 @@
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
-    "putout": "^13.8.0",
+    "putout": "^14.0.2",
     "supertape": "^4.8.0"
   },
   "license": "MIT",
