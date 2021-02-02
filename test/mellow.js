@@ -6,24 +6,17 @@ const mockRequire = require('mock-require');
 const {winToWeb} = require('..');
 
 const {stopAll, reRequire} = mockRequire;
+const {defineProperty} = Object;
 
 test('mellow: webToWin', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
+    const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
     
     const {webToWin} = reRequire('..');
     const result = webToWin('/c/windows', '');
     const expected = 'c:\\windows';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
+    stopMockOs();
     stopAll();
     
     t.equal(result, expected);
@@ -31,22 +24,14 @@ test('mellow: webToWin', (t) => {
 });
 
 test('mellow: webToWin: /', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
+    const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
     
     const {webToWin} = reRequire('..');
     const result = webToWin('/', '');
     const expected = '/';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
+    stopMockOs();
     stopAll();
     
     t.equal(result, expected);
@@ -54,55 +39,35 @@ test('mellow: webToWin: /', (t) => {
 });
 
 test('mellow: winToWeb', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
+    const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
     
     const result = winToWeb('c:\\windows', '');
     const expected = '/c/windows';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
 
 test('mellow: winToWeb: no root', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
+    const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
     
     const result = winToWeb('c:\\windows');
     const expected = '/c/windows';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
 
 test('mellow: webToWin: linux', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'linux',
-    });
+    const stopMockOs = mockOs('linux');
     
     mockRequire('path', path);
     
@@ -110,80 +75,67 @@ test('mellow: webToWin: linux', (t) => {
     const result = webToWin('/c/windows', '');
     const expected = '/c/windows';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
 
 test('mellow: winToWeb: linux', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'linux',
-    });
-    
+    const stopMockOs = mockOs('linux');
     mockRequire('path', path);
     
     const result = winToWeb('/home/user', '');
     const expected = '/home/user';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
 
 test('mellow: winToWeb: linux: no root', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'linux',
-    });
-    
+    const stopMockOs = mockOs('linux');
     mockRequire('path', path);
     
     const result = winToWeb('/home/user');
     const expected = '/home/user';
     
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
 
-test('mellow: webToWin: root and root not /', (t) => {
-    const {platform} = process;
-    
-    Object.defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
+test('mellow: webToWin: windows: root and root not /', (t) => {
+    const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
     
     const {webToWin} = reRequire('..');
-    const result = webToWin('/windows', '/c/');
-    const expected = '/c/windows';
-    
-    Object.defineProperty(process, 'platform', {
-        value: platform,
-    });
+    const result = webToWin('/windows', 'c:\\');
+    const expected = 'c:\\windows';
     
     stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
 });
+
+function mockOs(value) {
+    let {platform} = process;
+    
+    defineProperty(process, 'platform', {
+        value,
+    });
+    
+     return () => {
+        defineProperty(process, 'platform', {
+            value: platform,
+        });
+     }
+};
 
