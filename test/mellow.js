@@ -126,16 +126,16 @@ test('mellow: webToWin: windows: root and root not /', (t) => {
 });
 
 function mockOs(value) {
-    let {platform} = process;
+    const {platform} = process;
     
     defineProperty(process, 'platform', {
         value,
     });
     
-     return () => {
+    return () => {
         defineProperty(process, 'platform', {
             value: platform,
         });
-     }
-};
+    };
+}
 
