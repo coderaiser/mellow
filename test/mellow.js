@@ -120,6 +120,37 @@ test('mellow: webToWin: windows: root and root not /', (t) => {
     
     stopAll();
     stopMockOs();
+
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('mellow: webToWin: windows, current not "/"', (t) => {
+    const stopMockOs = mockOs('win32');
+    mockRequire('path', path.win32);
+    
+    const {webToWin} = reRequire('..');
+    const result = webToWin('cc', '/');
+    const expected = 'c:\\';
+    
+    stopMockOs();
+    stopAll();
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+
+test('mellow: winToWeb: windows, current not "/"', (t) => {
+    const stopMockOs = mockOs('win32');
+    mockRequire('path', path.win32);
+    
+    const result = winToWeb('c', '/');
+    const expected = '/c';
+    
+    stopAll();
+    stopMockOs();
     
     t.equal(result, expected);
     t.end();
@@ -138,4 +169,3 @@ function mockOs(value) {
         });
     };
 }
-
