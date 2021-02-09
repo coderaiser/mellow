@@ -1,3 +1,11 @@
+2021.02.09, v3.0.2
+
+feature:
+- feature(package) eslint-plugin-putout v7.0.1
+- feature(package) putout v14.0.2
+
+
+
 2021.01.21, v3.0.1
 
 fix:
