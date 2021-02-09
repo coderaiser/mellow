@@ -52,6 +52,20 @@ test('mellow: winToWeb', (t) => {
     t.end();
 });
 
+test('mellow: winToWeb: windows: root /', (t) => {
+    const stopMockOs = mockOs('win32');
+    mockRequire('path', path.win32);
+    
+    const result = winToWeb('c:\\windows', '/');
+    const expected = '/c/windows';
+    
+    stopAll();
+    stopMockOs();
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('mellow: winToWeb: no root', (t) => {
     const stopMockOs = mockOs('win32');
     mockRequire('path', path.win32);
@@ -102,6 +116,18 @@ test('mellow: winToWeb: linux: no root', (t) => {
     
     const result = winToWeb('/home/user');
     const expected = '/home/user';
+    
+    stopAll();
+    stopMockOs();
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('mellow: winToWeb: windows: no root', (t) => {
+    const stopMockOs = mockOs('win32');
+    const result = winToWeb('c:\\home\\user');
+    const expected = '/c/home/user';
     
     stopAll();
     stopMockOs();
