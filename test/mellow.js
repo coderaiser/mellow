@@ -129,7 +129,6 @@ test('mellow: winToWeb: windows: no root', (t) => {
     const result = winToWeb('c:\\home\\user');
     const expected = '/c/home/user';
     
-    stopAll();
     stopMockOs();
     
     t.equal(result, expected);

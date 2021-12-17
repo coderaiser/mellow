@@ -5,7 +5,7 @@ export default {
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
-    'report': () => 'c8 report --reporter=text-lcov | coveralls',
+    'report': () => 'c8 report --reporter=lcov',
     'coverage': () => 'c8 npm test',
     'coverage:report': () => 'nyc report --reporter=lcov',
     'test': () => 'tape test/*.js',
