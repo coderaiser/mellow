@@ -21,7 +21,9 @@ npm i mellow
 
 ## API
 
-### pathToWin
+### webToWin
+
+Previouse has name `pathToWin`.
 
 ```js
 const mellow  = require('mellow');
@@ -30,7 +32,9 @@ mellow.webToWin('/c/windows');
 'c:\\windows';
 ```
 
-### pathFromWin
+### winToWeb
+
+Previouse has name `pathFromWin`.
 
 ```js
 const mellow  = require('mellow');
